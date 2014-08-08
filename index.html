@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Lista de Contatos</title>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+	<style>
+		.container{
+			width: 500px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="container">
+
+		<header class="row">
+
+			<div class="page-header col-sm-12">
+				<h1>Lista de Contatos</h1>
+			</div>
+
+		</header>
+
+		<main class="row">
+
+			<section class="dispatch jumbotron col-sm-12">
+
+				<form id="form" role="form">
+
+					<div class="form-group">
+						<label for="name">Nome</label>
+						<input type="text" name="name" id="name" class="form-control">
+					</div>
+
+					<div class="form-group">
+						<label for="phone">Telefone</label>
+						<input type="tel" name="phone" id="phone" class="form-control">
+					</div>
+
+					<button class="btn btn-primary">Novo Contato</button>
+
+				</form>
+
+			</section>
+
+			<section class="list col-sm-12">
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Telefone</th>
+						</tr>
+					</thead>
+					<tbody class="listContact"></tbody>
+				</table>
+				
+			</section>
+
+			<script type="text/template" id="tpl-list">
+				<% _.each(models, function(item){ %>
+					<tr>
+						<td><%= item.attributes.name %></td>
+						<td><%= item.attributes.phone %></td>
+					</tr>
+				<% }) %>
+			</script>
+
+		</main>
+	
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src="js/backbone-min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>
